@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  /* ... */
+}
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap');
+
+.font-adlam {
+  font-family: "ADLaM Display", sans-serif;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  background: linear-gradient(90deg,#000205,#002B6B);
+  overflow: hidden;
+}
+
+.try-btn{
+ @apply h-[46px] w-[100px] bg-[#3B0B45]  rounded-2xl border-2 border-purple-300 text-[#88a1e7] text-[20px] 
+}
+
+.login-btn{
+  @apply h-[46px] w-[100px] bg-[#524de2] text-[#88a1e7] border-2 border-purple-300 text-[20px] rounded-2xl
+}
+
+/* message area for chats */
+.message-cont{
+  scrollbar-width: thin;
+  scrollbar-color: #6366f1 #1f2937;
+  @apply h-[610px] w-[900px] left-1/2 -translate-x-1/2 fixed right-24 mt-6 overflow-auto flex flex-col 
+}
+
+/* user promts */
+.chat {
+  @apply max-w-[30%] py-3 px-4 m-2 rounded-3xl 
+         bg-blue-500/20 border border-indigo-500/50 
+         text-white break-words whitespace-pre-wrap leading-relaxed ml-auto break-all shadow-lg;
+         animation: slideInRight 0.5s ease-out;
+}
+
+ @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+/* ai responses */
+.ai-response{
+   @apply max-w-[30%] py-3 px-4 m-2 rounded-3xl 
+         bg-purple-500/20 border border-indigo-500/50 
+         text-white break-words whitespace-pre-wrap leading-relaxed mr-auto break-all;
+          animation: slideInBounce 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+ @keyframes slideInBounce {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            60% {
+                opacity: 1;
+                transform: translateX(15px);
+            }
+            80% {
+                transform: translateX(-5px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+/* contains input box and button layout */
+.prompt-cont{
+  @apply fixed bottom-8 flex  justify-center left-1/2 -translate-x-1/2 gap-4 z-10
+}
+
+/* user input(promts) */
+.ins {
+  @apply h-12 rounded-3xl border-2 shadow-2xs opacity-70 text-2xl w-[800px]  bg-[#051437]  text-[#F5F7FF]  border-[#C2B5FF];
+}
+
+/* button */
+.btn{
+  @apply w-[100px] rounded-3xl h-12 bg-[#b7b4ff] bg-[length:200%_100%] text-white text-sm font-semibold bg-gradient-to-r from-[#b7b4ff] via-[#9d99ff] to-[#b7b4ff] transform transition-all duration-500
+                   hover:from-[#8b85ff] hover:via-[#7a73ff] hover:to-[#8b85ff]
+                   hover:bg-right hover:translate-y-2 hover:shadow-2xl hover:shadow-[#8b85ff]/50
+                   active:translate-y-1
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -500px 0;
+  }
+  100% {
+    background-position: 500px 0;
+  }
+}
+@keyframes gradient-shimmer {
+  0%   { background-position: 0% 0; }
+  50%  { background-position: 100% 0; }
+  100% { background-position: 0% 0; }
+}
+
+@keyframes fade-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+.shrung{
+   background-image: linear-gradient(90deg,#E1DDFD,#A5095F,#F33949);
+  background-size: 300% 100%;
+  animation:
+    gradient-shimmer 6s ease-in-out infinite,
+    fade-slide 800ms ease-out 1;
+}
+.shimmer {
+  background-size: 1000px 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+

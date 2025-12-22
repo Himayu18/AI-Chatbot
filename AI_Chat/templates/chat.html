@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'dist/style.css' %}">
+
+</head>
+<body>
+  <div>
+    <div class="message-cont" id="message-cont"> </div>
+    <div class="prompt-cont">
+      <input 
+        class="ins" 
+        type="text" 
+        name="prompt" 
+        placeholder="Enter your prompt" 
+        id="prompt"
+      >
+      <button type="button" id="btn" class="btn">Submit</button> <!-- Fixed: Button → button -->
+    </div>
+  </div>
+  <script>
+    const input = document.getElementById("prompt")
+    const submit_btn =  document.getElementById("btn")
+    const message_cont = document.getElementById("message-cont")
+
+    
+
+    async function sendMessage(params) {
+      const user_input = input.value.trim()
+      if(!user_input){
+        return
+      }
+      const chat = document.createElement("div")
+      chat.className = "chat"
+      chat.textContent = user_input
+      message_cont.appendChild(chat)
+      input.value= ""
+      submit_btn.disabled = true;
+
+      const res = document.createElement("div")
+      res.className = "ai-response"
+      res.textContent = ""
+      message_cont.appendChild(res)
+
+      try{ 
+        const response = await fetch('/api/chat/',{
+        method:'POST',
+        headers: {
+          'Content-Type':'application/json',
+        },
+        body:JSON.stringify({message:user_input})
+      })
+
+     
+
+      if (!response.ok) throw new Error('Network error');
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+
+      while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      
+      const chunk = decoder.decode(value, { stream: true });
+      res.textContent += chunk;
+
+     
+     
+    }
+  }
+  catch (error) {
+    res.textContent = "Error: " + error.message;
+  } finally {
+    submit_btn.disabled = false;
+    input.focus();  // Refocus input
+  }
+}
+
+    submit_btn.addEventListener("click",sendMessage)
+
+  </script>
+</body>
+</html>

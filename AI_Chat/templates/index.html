@@ -1,0 +1,28 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'dist/style.css' %}">
+
+  </head>
+  <body>
+    <div>
+      <div class="font-adlam mx-auto h-[160px] w-[470px] bg-[linear-gradient(90deg,#7E7AF8,#A6095F,#F43948)] bg-clip-text text-[120px] text-transparent  shimmer  relative top-[60px]">Asta Ai</div>
+
+      <div class="text-[50px] relative top-[70px]  mx-auto h-[90px] w-[800px] bg-[linear-gradient(90deg,#E1DDFD,#A5095F,#F33949)] text-transparent bg-clip-text shrung">Conversations that think with you.</div>
+
+      <div class=" text-[#88a1e7]  h-[80px] w-[800px] mx-auto relative top-[75px] text-[20px]">Asta Ai is an intelligent assistant that turns your questions into clear, useful answers in seconds. It helps you brainstorm ideas, refine content, and solve problems with natural, conversational chat. Built for modern workflows, Asta Ai stays fast, focused, and always ready to think with you.</div>
+
+      <div class="flex justify-center items-center h-[400px] gap-28">
+  <button type="button" onclick="window.location.href = '{% url 'chat'%}'" class="try-btn">Try </button>
+  <button class="login-btn">Login</button>
+</div>
+    </div>
+  </body>
+</html>
