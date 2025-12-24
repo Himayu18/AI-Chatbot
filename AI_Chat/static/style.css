@@ -24,7 +24,7 @@ body {
   @apply w-[250px] rounded-2xl border border-indigo-900 bg-[#1B0623] shadow-blue-100 opacity-30 
 }
 .ai-model-selector{
-  @apply  h-12 rounded-[10px] text-2xl border border-purple-900 text-wrap font-bold text-[#A798C8] bg-[linear-gradient(90deg,#F43948,#F33982)]
+  @apply  h-12 w-32 rounded-[10px] text-center  appearance-none text-2xl border border-purple-900 text-wrap font-bold text-[#A798C8] bg-linear-0 from-blue-900 to-purple-500
 }
 .try-btn{
  @apply h-[46px] w-[100px] bg-[#3B0B45]  rounded-2xl border-2 border-purple-300 text-[#88a1e7] text-[20px] 
@@ -38,7 +38,7 @@ body {
 .message-cont{
   scrollbar-width: thin;
   scrollbar-color: #6366f1 #1f2937;
-  @apply h-[550px] w-[900px] left-1/2 -translate-x-1/2 fixed right-24 mt-20 overflow-auto flex flex-col 
+  @apply h-[550px] w-[900px]  left-1/2 -translate-x-1/2 fixed right-24 mt-20 overflow-auto flex flex-col 
 }
 
 /* user promts */
@@ -63,7 +63,7 @@ body {
 
 /* ai responses */
 .ai-response{
-   @apply max-w-[100%] py-3 px-4 m-2 
+   @apply max-w-[100%] py-3 px-4 m-2
          bg-purple-500/20 border border-indigo-500/50 
          text-white break-words whitespace-pre-wrap leading-relaxed mr-auto break-all;
          border-radius: 24px 24px 24px 4px;
@@ -94,7 +94,7 @@ body {
 
 /* user input(promts) */
 .ins {
-  @apply h-12 rounded-3xl border-2 shadow-2xs opacity-70 text-2xl w-[800px] focus:outline-none focus:border-none focus:bg-[#051437] appearance-none text-[#F5F7FF]   border-none;
+  @apply h-12 rounded-3xl border-2  shadow-2xs opacity-70 text-2xl  w-200 focus:outline-none focus:border-none focus:bg-[#051437] appearance-none text-[#F5F7FF]   border-none;
 }
 
 /* button */
@@ -103,6 +103,13 @@ body {
                    hover:from-[#8b85ff] hover:via-[#7a73ff] hover:to-[#8b85ff]
                    hover:bg-right hover:translate-y-2 hover:shadow-2xl hover:shadow-[#8b85ff]/50
                    active:translate-y-1
+}
+
+.attach-document{
+  @apply h-9 w-9 flex justify-center items-center ml-2 hover:bg-[#8B5CF6] hover:opacity-80  rounded-[10px];
+}
+.attach-document-img{
+  @apply h-7 w-7 object-cover cursor-pointer;
 }
 
 @keyframes shimmer {

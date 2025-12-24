@@ -20,13 +20,16 @@
           <option value="">sonar</option>
         </select>
       </header>
-    <div class="message-cont" id="message-cont"> </div>
+    <div class="message-cont" id="message-cont"></div>
     <div class="prompt-cont">
+      <div  class="attach-document ">
+        <img class="attach-document-img h-7 w-7 object-cover cursor-pointer" src="{% static 'attach1.png' %}" alt="img">
+      </div>
       <input 
         class="ins" 
         type="text" 
+        placeholder="Ask anything..."
         name="prompt" 
-        placeholder="Enter your prompt" 
         id="prompt"
         autocomplete="off"
       >
@@ -43,11 +46,13 @@
     
 
     async function sendMessage(params) {
+      // message_cont.textContent = ""
       const user_input = input.value.trim()
       if(!user_input){
         return
       }
       const chat = document.createElement("div")
+      
       chat.className = "chat"
       chat.textContent = user_input
       message_cont.appendChild(chat)
@@ -57,6 +62,7 @@
       const res = document.createElement("div")
       res.className = "ai-response"
       res.textContent = ""
+      
       message_cont.appendChild(res)
 
       try{ 
