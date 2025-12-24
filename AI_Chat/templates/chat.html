@@ -93,7 +93,12 @@
     input.focus();  // Refocus input
   }
 }
-
+    input.addEventListener("keydown",(e)=>{
+      if(e.key === "Enter"){
+         e.preventDefault();
+        sendMessage();
+      }
+    });
     submit_btn.addEventListener("click",sendMessage)
 
   </script>
