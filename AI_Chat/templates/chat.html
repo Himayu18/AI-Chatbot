@@ -11,7 +11,15 @@
 
 </head>
 <body>
-  <div>
+  <div class="flex h-full">
+    <aside class="chat-side-bar">Side Bar</aside>
+    <div class="flex flex-col flex-1">
+      <header class="ai-header">Asta ai
+        <select class="ai-model-selector">Ai-model
+          <option value="">gemeni</option>
+          <option value="">sonar</option>
+        </select>
+      </header>
     <div class="message-cont" id="message-cont"> </div>
     <div class="prompt-cont">
       <input 
@@ -24,6 +32,8 @@
       <button type="button" id="btn" class="btn">Submit</button> <!-- Fixed: Button → button -->
     </div>
   </div>
+  </div>
+
   <script>
     const input = document.getElementById("prompt")
     const submit_btn =  document.getElementById("btn")

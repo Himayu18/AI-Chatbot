@@ -16,6 +16,16 @@ body {
   overflow: hidden;
 }
 
+.ai-header{
+  @apply  flex items-center justify-between px-7 rounded-2xl border border-black  shadow-[0_0_20px_0_rgba(139,92,246,0.5)] h-16 text-4xl font-bold  bg-[linear-gradient(180deg,#F43948,#F33982,#7E7AF8)] bg-clip-text text-transparent;
+}
+
+.chat-side-bar{
+  @apply w-[250px] rounded-2xl border border-indigo-900 bg-[#1B0623] shadow-blue-100 opacity-30 
+}
+.ai-model-selector{
+  @apply  h-12 rounded-[10px] text-2xl border border-purple-900 text-wrap font-bold text-[#A798C8] bg-[linear-gradient(90deg,#F43948,#F33982)]
+}
 .try-btn{
  @apply h-[46px] w-[100px] bg-[#3B0B45]  rounded-2xl border-2 border-purple-300 text-[#88a1e7] text-[20px] 
 }
@@ -28,7 +38,7 @@ body {
 .message-cont{
   scrollbar-width: thin;
   scrollbar-color: #6366f1 #1f2937;
-  @apply h-[610px] w-[900px] left-1/2 -translate-x-1/2 fixed right-24 mt-6 overflow-auto flex flex-col 
+  @apply h-[550px] w-[900px] left-1/2 -translate-x-1/2 fixed right-24 mt-20 overflow-auto flex flex-col 
 }
 
 /* user promts */
@@ -52,7 +62,7 @@ body {
 
 /* ai responses */
 .ai-response{
-   @apply max-w-[30%] py-3 px-4 m-2 rounded-3xl 
+   @apply max-w-[100%] py-3 px-4 m-2 rounded-3xl 
          bg-purple-500/20 border border-indigo-500/50 
          text-white break-words whitespace-pre-wrap leading-relaxed mr-auto break-all;
           animation: slideInBounce 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
