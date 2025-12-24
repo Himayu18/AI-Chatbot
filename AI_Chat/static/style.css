@@ -87,17 +87,17 @@ body {
 
 /* contains input box and button layout */
 .prompt-cont{
-  @apply fixed bottom-8 flex  justify-center left-1/2 -translate-x-1/2 gap-4 z-10
+  @apply fixed bottom-8  flex items-center  justify-center left-1/2 -translate-x-1/2 gap-4 z-10 border bg-[#051437]  border-[#C2B5FF] rounded-3xl
 }
 
 /* user input(promts) */
 .ins {
-  @apply h-12 rounded-3xl border-2 shadow-2xs opacity-70 text-2xl w-[800px]  bg-[#051437]  text-[#F5F7FF]  border-[#C2B5FF];
+  @apply h-12 rounded-3xl border-2 shadow-2xs opacity-70 text-2xl w-[800px] focus:outline-none focus:border-none focus:bg-[#051437] appearance-none text-[#F5F7FF]   border-none;
 }
 
 /* button */
 .btn{
-  @apply w-[100px] rounded-3xl h-12 bg-[#b7b4ff] bg-[length:200%_100%] text-white text-sm font-semibold bg-gradient-to-r from-[#b7b4ff] via-[#9d99ff] to-[#b7b4ff] transform transition-all duration-500
+  @apply w-[100px] rounded-3xl h-10 relative right-1.5  bg-[#b7b4ff] bg-[length:200%_100%] text-white text-sm font-semibold bg-gradient-to-r from-[#b7b4ff] via-[#9d99ff] to-[#b7b4ff] transform transition-all duration-500
                    hover:from-[#8b85ff] hover:via-[#7a73ff] hover:to-[#8b85ff]
                    hover:bg-right hover:translate-y-2 hover:shadow-2xl hover:shadow-[#8b85ff]/50
                    active:translate-y-1
