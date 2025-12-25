@@ -38,7 +38,7 @@ body {
 .message-cont{
   scrollbar-width: thin;
   scrollbar-color: #6366f1 #1f2937;
-  @apply h-[550px] w-[900px]  left-1/2 -translate-x-1/2 fixed right-24 mt-20 overflow-auto flex flex-col 
+  @apply h-[550px] w-[900px]    left-1/2 -translate-x-1/2 fixed right-24 mt-20 overflow-auto flex flex-col 
 }
 
 /* user promts */
@@ -106,7 +106,7 @@ body {
 }
 
 .attach-document{
-  @apply h-9 w-9 flex justify-center items-center ml-2 hover:bg-[#8B5CF6] hover:opacity-80  rounded-[10px];
+  @apply h-9 w-9 flex justify-center items-center ml-2 hover:bg-[#8B5CF6] hover:opacity-80   rounded-[10px];
 }
 .attach-document-img{
   @apply h-7 w-7 object-cover cursor-pointer;

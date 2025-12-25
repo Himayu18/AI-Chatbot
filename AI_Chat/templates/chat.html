@@ -20,10 +20,12 @@
           <option value="">sonar</option>
         </select>
       </header>
-    <div class="message-cont" id="message-cont"></div>
+    <div class="message-cont" id="message-cont">
+      
+    </div>
     <div class="prompt-cont">
       <div  class="attach-document ">
-        <img class="attach-document-img h-7 w-7 object-cover cursor-pointer" src="{% static 'attach1.png' %}" alt="img">
+        <img id="document-uploader" class="attach-document-img h-7 w-7 object-cover cursor-pointer" src="{% static 'attach1.png' %}" alt="img">
       </div>
       <input 
         class="ins" 
@@ -42,8 +44,19 @@
     const input = document.getElementById("prompt")
     const submit_btn =  document.getElementById("btn")
     const message_cont = document.getElementById("message-cont")
-
+    const upload_doc = document.getElementById("document-uploader")
+    const attach_document = document.querySelector(".attach-document")
     
+    function triggerDocUploader(){
+      const file_input = document.createElement("input")
+      file_input.type = "file"
+      file_input.style.display = "none"
+      file_input.click()
+      attach_document.appendChild(file_input)
+
+    }
+
+    upload_doc.addEventListener("click",triggerDocUploader)
 
     async function sendMessage(params) {
       // message_cont.textContent = ""
