@@ -7,11 +7,12 @@ from tenacity import retry,stop_after_attempt,wait_exponential
 
 
 
+
 logger = logging.getLogger(__name__)
 
 client = AsyncOpenAI(
-    api_key=settings.PERPLEXITY_API_KEY,
-    base_url="https://api.perplexity.ai" 
+    api_key=settings.OPENROUTER_API_KEY,
+    base_url="https://openrouter.ai/api/v1" 
 )
 
 class PerplexityService:
@@ -20,7 +21,7 @@ class PerplexityService:
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1,min=2,max=10)
     )
-    async def stream_answer(user_message,model="sonar"):
+    async def stream_answer(user_message,model):
         try:
             stream = await client.chat.completions.create(
                 model=model,
@@ -44,4 +45,6 @@ class PerplexityService:
         except APIError as e:
             logger.error(f"perplexity Api Error: {e}")
             raise e            
-            
+
+
+    

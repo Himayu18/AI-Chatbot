@@ -24,7 +24,7 @@ body {
   @apply w-[250px] rounded-2xl border border-indigo-900 bg-[#1B0623] shadow-blue-100 opacity-30 
 }
 .ai-model-selector{
-  @apply  h-12 w-32 rounded-[10px] text-center  appearance-none text-2xl border border-purple-900 text-wrap font-bold text-[#A798C8] bg-linear-0 from-blue-900 to-purple-500
+  @apply  h-12 w-44 rounded-[10px] text-center  appearance-none text-[18px] border border-purple-900 text-wrap font-bold text-[#A798C8] bg-linear-0 from-blue-900 to-purple-500
 }
 .try-btn{
  @apply h-[46px] w-[100px] bg-[#3B0B45]  rounded-2xl border-2 border-purple-300 text-[#88a1e7] text-[20px] 

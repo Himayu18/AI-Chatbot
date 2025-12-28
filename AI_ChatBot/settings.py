@@ -19,8 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 load_dotenv()
+OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
 PERPLEXITY_API_KEY = os.getenv('PERPLEXITY_API_KEY')
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+CHROMA_DB_DIR = os.path.join(BASE_DIR,'chroma_db')
 
 
 # Quick-start development settings - unsuitable for production

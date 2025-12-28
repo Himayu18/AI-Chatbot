@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import StreamingHttpResponse
-from django_ratelimit.decorators import ratelimit
 from .services import PerplexityService
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from openai import OpenAI
 import json
+
 
 # Create your views here.
 def home(request):
@@ -18,12 +18,13 @@ def chat(request):
 
 
 
-async def stream_generator(user_message):
+async def stream_generator(user_message,model):
     full_response = []
 
-    async for chunk in PerplexityService.stream_answer(user_message):
+    async for chunk in PerplexityService.stream_answer(user_message,model):
         full_response.append(chunk)
         yield chunk   
+
 
 @csrf_exempt
 async def chat_endpoint(request):
@@ -31,12 +32,13 @@ async def chat_endpoint(request):
         try:
             body = json.loads(request.body)
             message = body.get("message")
+            model = body.get("model_name")
 
             if not message:
                 return JsonResponse({"error":"No message provided"},status=400)
             
             response = StreamingHttpResponse(
-            stream_generator(message),
+            stream_generator(message,model),
             content_type="text/plain; charset=utf-8"
 )
             response["Cache-Control"] = "no-cache"
@@ -49,3 +51,4 @@ async def chat_endpoint(request):
         except json.JSONDecodeError:
             return JsonResponse({"error":"Invalid JSON"},status=400)
     return JsonResponse({"error":"MEthod not allowed"},status=405)
+

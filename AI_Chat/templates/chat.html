@@ -15,9 +15,11 @@
     <aside class="chat-side-bar">Side Bar</aside>
     <div class="flex flex-col flex-1">
       <header class="ai-header">Asta ai
-        <select class="ai-model-selector">Ai-model
-          <option value="">gemeni</option>
-          <option value="">sonar</option>
+        <select class="ai-model-selector" id="ai-model-name">Ai-model
+          <option value="mistralai/devstral-2512:free">devstral-2512</option>
+          <option value="xiaomi/mimo-v2-flash:free">mimo-v2-flash</option>
+          <option value="nvidia/nemotron-3-nano-30b-a3b:free">nemotron-3-nano</option>
+          <option value="cognitivecomputations/dolphin-mistral-24b-venice-edition:free">Uncensored</option>
         </select>
       </header>
     <div class="message-cont" id="message-cont">
@@ -46,6 +48,7 @@
     const message_cont = document.getElementById("message-cont")
     const upload_doc = document.getElementById("document-uploader")
     const attach_document = document.querySelector(".attach-document")
+    const ai_model = document.getElementById("ai-model-name")
     
     function triggerDocUploader(){
       const file_input = document.createElement("input")
@@ -61,6 +64,7 @@
     async function sendMessage(params) {
       // message_cont.textContent = ""
       const user_input = input.value.trim()
+      const model = ai_model.value
       if(!user_input){
         return
       }
@@ -84,7 +88,7 @@
         headers: {
           'Content-Type':'application/json',
         },
-        body:JSON.stringify({message:user_input})
+        body:JSON.stringify({message:user_input,model_name:model})
       })
 
      
